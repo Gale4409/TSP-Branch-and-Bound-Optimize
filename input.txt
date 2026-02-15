@@ -1,0 +1,17 @@
+5
+Torino 870000 239
+Milano 1370000 120
+Roma 2870000 21
+Napoli 3000000 17
+Venezia 260000 1
+10
+Torino Milano 140
+Torino Roma 690
+Torino Napoli 890
+Torino Venezia 400
+Milano Roma 570
+Milano Napoli 770
+Milano Venezia 260
+Roma Napoli 220
+Roma Venezia 530
+Napoli Venezia 720
