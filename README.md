@@ -11,8 +11,8 @@ This project demonstrates proficiency in handling NP-Hard combinatorial problems
 ---
 
 ## 🚀 Technical Highlights
-- **Branch & Bound Pruning:** Dynamically cuts suboptimal branches during the recursive state-space tree exploration, drastically reducing time complexity compared to brute-force permutations ($O(n!)$).
-- **Symbol Table (Hash Table):** Implements a custom Symbol Table with Linear Probing hashing to map string keys (City names) to internal graph indices in $O(1)$ average time.
+- **Branch & Bound Pruning:** Dynamically cuts suboptimal branches during the recursive state-space tree exploration, drastically reducing time complexity compared to brute-force permutations.
+- **Symbol Table (Hash Table):** Implements a custom Symbol Table with Linear Probing hashing to map string keys (City names) to internal graph indices in O(1) average time.
 - **Opaque ADTs:** Uses First-Class Abstract Data Types for both the `Item` (City) and the `Symbol Table`, encapsulating data and hiding internal structures from the client.
 
 ---
@@ -27,7 +27,15 @@ gcc -Wall -Wextra -O3 -o tsp_solver main.c Graph.c Item.c ST.c
 
 # 2. Run the executable with the provided routing file
 ./tsp_solver input.txt
+```
 
+---
+
+## 📊 Example Output
+
+The program automatically parses the input file, hashes the city names, and computes the absolute shortest Hamiltonian cycle, reporting the pruned branches.
+
+```console
 $ ./tsp_solver input.txt
 Loading City Network from input.txt...
 Network loaded successfully!
@@ -42,9 +50,20 @@ Optimization report:
 Pruned branches: 20
 
 Memory successfully freed. Program terminated.
+```
 
+---
+
+## 🧪 Testing & Memory Safety
+
+The architecture is strictly designed to be memory-safe. Dynamic allocations for recursive path arrays, strings, and graph nodes are carefully managed and freed. 
+
+Memory safety has been verified ensuring **zero memory leaks** or segmentation faults even at maximum recursion depth.
+
+```bash
 # Valgrind memory check command
 valgrind --leak-check=full ./tsp_solver input.txt
 
 # Expected Result:
 # All heap blocks were freed -- no leaks are possible
+```
